@@ -1,4 +1,4 @@
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDp22IDrIp9pJRQN7D1_IpHhTWgh7V8nAM",
   authDomain: "recipe-app-da515.firebaseapp.com",
   databaseURL: "https://recipe-app-da515-default-rtdb.firebaseio.com",
