@@ -8,27 +8,24 @@
 </div>
 
 <div class="max-w-2xl mx-auto my-4">
-    @for (recipe of recipes; track $index) {
+  @for (recipe of recipes; track $index) {
   <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm">
     <a href="#">
-      <img
-        class="rounded-t-lg"
-        src={{recipe.img}}
-        alt=""
-      />
+      <img class="rounded-t-lg" src="{{ recipe.img }}" alt="" />
     </a>
     <div class="p-5">
       <a href="#">
         <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">
-          {{recipe.name}}
+          {{ recipe.name }}
         </h5>
       </a>
       <p class="font-normal text-gray-700 mb-3">
-        {{recipe.description}}
+        {{ recipe.description }}
       </p>
       <div class="flex gap-2">
         <button
           class="bg-green-600 hover:bg-green-700 text-white font-bold uppercas text-sm py-2 px-4 rounded"
+          (click)="editRecipe(recipe.key!)"
         >
           Edit
         </button>
@@ -40,5 +37,5 @@
       </div>
     </div>
   </div>
-}
+  }
 </div>

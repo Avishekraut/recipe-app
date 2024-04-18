@@ -8,7 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { RecipeService } from '../../core/services/recipe.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IRecipe } from '../../core/services/models/common.model';
 
 @Component({
   selector: 'app-recipe-form',
@@ -19,11 +20,12 @@ import { Router } from '@angular/router';
 })
 export class RecipeFormComponent implements OnInit {
   recipeForm!: FormGroup;
-
+  recipeId = '';
   constructor(
     private fb: FormBuilder,
     private recipeService: RecipeService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.recipeForm = this.fb.group({
       name: new FormControl('', [Validators.required]),
@@ -33,7 +35,14 @@ export class RecipeFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe({
+      next: (params) => {
+        this.recipeId = params['id'];
+        this.getRecipe(this.recipeId);
+      },
+    });
+  }
 
   onSubmit() {
     if (this.recipeForm.valid) {
@@ -42,5 +51,17 @@ export class RecipeFormComponent implements OnInit {
     } else {
       this.recipeForm.markAllAsTouched();
     }
+  }
+
+  getRecipe(key: string) {
+    this.recipeService
+      .getRecipe(key)
+      .snapshotChanges()
+      .subscribe({
+        next: (data) => {
+          let recipe = data.payload.toJSON() as IRecipe;
+          this.recipeForm.setValue(recipe);
+        },
+      });
   }
 }

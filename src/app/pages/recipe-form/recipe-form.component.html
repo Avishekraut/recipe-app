@@ -6,9 +6,8 @@
         type="text"
         name="name"
         id="name"
-        placeholder="Name"
         formControlName="name"
-        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md"
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-neutral-700 outline-none focus:border-blue-600 focus:shadow-md"
       />
       @if(recipeForm.get("name")?.hasError("required") &&
       recipeForm.get("name")?.touched){
@@ -22,9 +21,9 @@
         type="url"
         name="img"
         id="img"
-        placeholder="https://image.com/"
+        placeholder="eg. https://image.com/"
         formControlName="img"
-        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md"
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-neutral-700 outline-none focus:border-blue-600 focus:shadow-md"
       />
       @if(recipeForm.get("img")?.hasError("required") &&
       recipeForm.get("img")?.touched){
@@ -38,9 +37,8 @@
         type="text"
         name="ingredients"
         id="ingredients"
-        placeholder="Milk, Baking powder"
         formControlName="ingredients"
-        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md"
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-neutral-700 outline-none focus:border-blue-600 focus:shadow-md"
       />
       @if(recipeForm.get("ingredients")?.hasError("required") &&
       recipeForm.get("ingredients")?.touched){
@@ -54,9 +52,8 @@
         rows="4"
         name="description"
         id="description"
-        placeholder="Description"
         formControlName="description"
-        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md"
+        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base text-neutral-700 font-medium outline-none focus:border-blue-600 focus:shadow-md"
       ></textarea>
       @if(recipeForm.get("description")?.hasError("required") &&
       recipeForm.get("description")?.touched){

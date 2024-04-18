@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RecipeService } from '../../core/services/recipe.service';
 import { IRecipe } from '../../core/services/models/common.model';
 
@@ -13,9 +13,8 @@ import { IRecipe } from '../../core/services/models/common.model';
 })
 export class RecipeComponent implements OnInit {
   recipes: IRecipe[] = [];
-  totalRecipes = 0;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService, private router: Router) {}
   ngOnInit(): void {
     this.getAllRecipes();
   }
@@ -41,5 +40,9 @@ export class RecipeComponent implements OnInit {
           });
         },
       });
+  }
+
+  editRecipe(key: string) {
+    this.router.navigate(['/recipe-form/' + key]);
   }
 }
