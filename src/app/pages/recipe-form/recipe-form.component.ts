@@ -32,6 +32,8 @@ export class RecipeFormComponent implements OnInit {
       img: new FormControl('', [Validators.required]),
       ingredients: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
+      category: new FormControl('', [Validators.required]),
+      cookingTime: new FormControl('', [Validators.required]),
     });
   }
 
@@ -46,7 +48,12 @@ export class RecipeFormComponent implements OnInit {
 
   onSubmit() {
     if (this.recipeForm.valid) {
-      this.recipeService.addRecipe(this.recipeForm.value);
+      if (this.recipeId) {
+        this.recipeService.updateRecipe(this.recipeId, this.recipeForm.value);
+      } else {
+        this.recipeService.addRecipe(this.recipeForm.value);
+      }
+
       this.router.navigate(['/']);
     } else {
       this.recipeForm.markAllAsTouched();

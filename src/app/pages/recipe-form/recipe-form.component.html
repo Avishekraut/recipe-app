@@ -11,7 +11,8 @@
       />
       @if(recipeForm.get("name")?.hasError("required") &&
       recipeForm.get("name")?.touched){
-      <div class="text-xs text-red-500">Name is required</div>}
+      <div class="text-xs text-red-500">Name is required</div>
+      }
     </div>
     <div class="mb-5">
       <label for="img" class="mb-3 block text-base font-medium">
@@ -27,7 +28,8 @@
       />
       @if(recipeForm.get("img")?.hasError("required") &&
       recipeForm.get("img")?.touched){
-      <div class="text-xs text-red-500">Image is required</div>}
+      <div class="text-xs text-red-500">Image is required</div>
+      }
     </div>
     <div class="mb-5">
       <label for="ingredients" class="mb-3 block text-base font-medium">
@@ -42,7 +44,43 @@
       />
       @if(recipeForm.get("ingredients")?.hasError("required") &&
       recipeForm.get("ingredients")?.touched){
-      <div class="text-xs text-red-500">Ingredients is required</div>}
+      <div class="text-xs text-red-500">Ingredients is required</div>
+      }
+    </div>
+    <div class="mb-5">
+      <label for="category" class="mb-3 block text-base font-medium">
+        Category
+      </label>
+      <select
+        name="category"
+        id="category"
+        formControlName="category"
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-neutral-700 outline-none focus:border-blue-600 focus:shadow-md"
+      >
+        <option value="">Select a Category</option>
+        <option value="Veg">Veg</option>
+        <option value="Non-Veg">Non-Veg</option>
+      </select>
+      @if(recipeForm.get("category")?.hasError("required") &&
+      recipeForm.get("category")?.touched){
+      <div class="text-xs text-red-500">Category is required</div>
+      }
+    </div>
+    <div class="mb-5">
+      <label for="cookingTime" class="mb-3 block text-base font-medium">
+        CookingTime(mins)
+      </label>
+      <input
+        type="number"
+        name="cookingTime"
+        id="cookingTime"
+        formControlName="cookingTime"
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-neutral-700 outline-none focus:border-blue-600 focus:shadow-md"
+      />
+      @if(recipeForm.get("cookingTime")?.hasError("required") &&
+      recipeForm.get("cookingTime")?.touched){
+      <div class="text-xs text-red-500">CookingTime is required</div>
+      }
     </div>
     <div class="mb-5">
       <label for="description" class="mb-3 block text-base font-medium">
@@ -57,7 +95,8 @@
       ></textarea>
       @if(recipeForm.get("description")?.hasError("required") &&
       recipeForm.get("description")?.touched){
-      <div class="text-xs text-red-500">Description is required</div>}
+      <div class="text-xs text-red-500">Description is required</div>
+      }
     </div>
     <div>
       <button

@@ -4,4 +4,6 @@ export interface IRecipe{
     img: string;
     ingredients: string;
     description: string;
+    category: string;    
+    cookingTime: number;  
 }

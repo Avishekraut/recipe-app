@@ -10,6 +10,7 @@ import { IRecipe } from './models/common.model';
 })
 export class RecipeService {
   private dbPath = '/recipes';
+
   recipesRef: AngularFireList<any>;
   constructor(private db: AngularFireDatabase) {
     this.recipesRef = db.list(this.dbPath);
@@ -32,6 +33,4 @@ export class RecipeService {
   deleteRecipe(key: string) {
     this.recipesRef.remove(key);
   }
-
-  
 }
