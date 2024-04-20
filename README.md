@@ -29,6 +29,6 @@ To set up the project locally, follow these steps:
 5. Install dependencies:<br>
   `npm install`
 
-7. Start the dev server by running the command below. Navigate to http://localhost:4200/.
+7. Start the dev server by running the command below. Navigate to http://localhost:4200/.<br>
    `ng serve`
 
