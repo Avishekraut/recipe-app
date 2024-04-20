@@ -22,6 +22,7 @@ export class RecipeComponent implements OnInit {
   };
   selectedSort: string = 'name';
   sortOrder: string = 'asc';
+  isLoading: boolean = false; 
 
   constructor(private recipeService: RecipeService, private router: Router) {}
 
@@ -30,6 +31,7 @@ export class RecipeComponent implements OnInit {
   }
 
   getAllRecipes() {
+    this.isLoading = true;  
     this.recipeService
       .getAllRecipes()
       .snapshotChanges()
@@ -48,8 +50,13 @@ export class RecipeComponent implements OnInit {
               cookingTime: recipe.cookingTime,
             });
           });
+          this.isLoading = false;
           this.filteredRecipes = this.recipes;
         },
+        error: (err) => {
+          this.isLoading = false;
+        },
+        
       });
   }
 
